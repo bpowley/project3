@@ -1,55 +1,70 @@
-var alist;
-
 jQuery(document).ready(function() {
-	// jQuery.post("https://www.cs.colostate.edu/~ct310/yr2017sp/more_assignments/project03masterlist.php", {}, function(data, status) {
-  jQuery.post("fedr.php", {}, function(data, status) {
-    addRows(data);
-    jQuery("#output1").html(status);
-  })
+	let url = "https://www.cs.colostate.edu/~ct310/yr2017sp/more_assignments/project03masterlist.php";
+	jQuery.post(url, {}, function(data, status) {
+		buildTable(data);
+		jQuery("#output1").html(status);
+	})
+	
 });
 
-function addRows(lst) {
-	var rt = "";
-	var tab = document.getElementById('ings');
-	var i = tab.rows.length;
-	var len = lst.length;
 
-	for (j = len - 1; j >= 0; j--) {
-    rt  = "<tr>";
-    rt += "<td>hello</td>";
-    rt += "<td>hello</td>";
-    rt += "<td>hello</td>";
-    rt += "</tr>";
-		var rr = tab.insertRow(i);
-		rr.innerHTML = rt;
+function buildTable(sites){
+	let length = sites.length;
+	//alert("length is : [" + length + "]");
+	for(i = 0; i < length; i++){
+		entryFromSite(sites[i]);
 	}
-  // for (j = 0; j < len; j++) {
-	// 	getStatus(lst[j].baseURL, lst[j].Team);
-	// }
+}
+
+function entryFromSite(site){
+	var baseURL = site.baseURL;
+	var name = site.nameShort;
+	
+	// alert("name: [" + name + "], baseURL: [" + baseURL + "]");
+	$.ajax(
+			{
+				url: baseURL + "ajax_status.php", 
+				success: function(result){
+					let dstat = result.status;
+					if(dstat != undefined && dstat == "open")
+						addSiteListing(baseURL);
+				},
+				error: function(result){
+					jQuery("#output1").html(baseURL + " failed to load");
+				}
+			}
+	);
+}
+
+function addSiteListing(url){
+	
+	if(url == ""){
+		return;	
+	}
+	$.post(url + "ajax_listing.php", {}, function(data, status){
+		for(i = 0; i < data.length; i++){
+			
+			if(data[i].name != undefined){
+				addRow(data[i], url);
+			}
+				
+		}
+		jQuery("#output1").html(status);
+	});
+}
+
+function addRow(listing, url){
+	let row_html  = "<tr>";
+	// add link here
+	row_html += "<td>" + listing.name + "</td>";
+	row_html += "<td>" + listing.unit + "</td>";
+	row_html += "<td>" + listing.cost + "</td>";
+	row_html += "<td>" + url + "</td>";
+	row_html += "</tr>";
+	
+	$("#ings").append(row_html);
 }
 
 
-function getStatus(u, n){
-  // alert("u: [" + u + "] n: [" + n + "]");
-  if(u==""){
-    //otherwise it will return the status in our ajax_status.php
-    return;
-  }
 
-  targetSiteStatus = u + "ajax_status.php";
-  // alert("target site is: " + targetSiteStatus);
-  jQuery.post(targetSiteStatus, {a : n}, function(data, status) {
-    target = "#" + n + "_status";
-    jQuery(target).text(data.status);
-    alert(data.status);
-    switch(data.status){
-      case "closed":
-        jQuery(target).css("background-color", "red");
-        break;
-      case "open":
-        jQuery(target).css("background-color", "green");
-        break;
-    }
-  })
 
-}
