@@ -5,6 +5,7 @@ class Ingredient {
   public $name; // name of the ingredient
   public $image_name; // name of the image of the ingredient
   public $description; // description of the ingredient
+  public $price; // price f the ingredient
 
   /*public function __construct($id=0, $name="default", $img="default.jpg", $dsc="default ingredient"){
     $this->id = $id;
@@ -20,12 +21,14 @@ class Ingredient {
     $newName = $row['ingredient_name'];
     $newImg = $row['image_name'];
     $newDsc = $row['description'];
+    $newPrice = $row['price'];
 
     $ingredient = new Ingredient();
     $ingredient->id = $newID;
     $ingredient->name = $newName;
     $ingredient->image_name = $newImg;
     $ingredient->description = $newDsc;
+    $ingredient->price = $newPrice;
 
     return $ingredient;
   }

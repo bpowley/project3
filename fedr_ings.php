@@ -16,7 +16,7 @@
   <div>
     <h3 style="text-align: center;">Federation Ingredients Page</h3>
     <p style="text-align: center;"> This page should display from sites thtat are open</p>
-    <table id="ings" class="table" style="margin: 0 auto;">
+    <table id="ings" class="table table-striped" style="margin: 0 auto;">
       <tr>
         <th>Ingredient Name</th>
         <th>Unit</th>
