@@ -88,7 +88,8 @@ function createTableIngredients(){
 					id INTEGER PRIMARY KEY ASC,
 					ingredient_name varchar(50),
 					image_name varchar(50),
-					description varchar(500))";
+					description varchar(500),
+					price varchar(15))";
 	createTableGeneric($sql);
 }
 
@@ -132,16 +133,16 @@ function createTableGeneric($sql) {
 function addDefaultIngredients(){
 	//testedIngredientInsert(1, "Kale", "kale.jpg", "Kale is the nastiest shit, how anyone can ruin smoothies with this terrible ingredient is beyond me.");
 	testedIngredientInsert(1,"Green Beans","greenbeans.jpg","These fresh green beans are a great source of fiber, antioxidants and vitamins.
-		Steam them, fry them, or bake them in a casserole for a tasty, healthy treat!");
+		Steam them, fry them, or bake them in a casserole for a tasty, healthy treat!","0.99");
 	testedIngredientInsert(2, "Mint","mint.jpg","Use these fresh leaves to add a minty flavor to your tea or candy, or as a natural breath freshener.
-		These leaves can also be used to add a pleasant aroma to any room.");
+		These leaves can also be used to add a pleasant aroma to any room.", "2.99");
 	testedIngredientInsert(3,"Oregano","oregano.jpg","This herb is part of the mint family. Order fresh leaves to use now or let them dry out for more intense flavor!
-		Oregano is wildly used Italian-American and Mediterranean cuisine.");
+		Oregano is wildly used Italian-American and Mediterranean cuisine.", "1.99");
 }
 
-function testedIngredientInsert($id, $ing_name, $img_name, $desc){
+function testedIngredientInsert($id, $ing_name, $img_name, $desc, $price){
 	global $dbh;
-	$sql = "INSERT INTO ingredients(id, ingredient_name, image_name, description) VALUES ( '$id', '$ing_name', '$img_name', '$desc')";
+	$sql = "INSERT INTO ingredients(id, ingredient_name, image_name, description, price) VALUES ( '$id', '$ing_name', '$img_name', '$desc', '$price')";
 	$status = $dbh->exec($sql);
 	if($status === FALSE){
 		echo '<pre class="bg-danger">';

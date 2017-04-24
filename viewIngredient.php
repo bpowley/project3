@@ -21,7 +21,11 @@ $ingredient = $db->getIngredientDetails($displayIngredient);
 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
 	<h2><?php echo $ingredient->name;?></h2>
 	<p>
-		<?php echo $ingredient->description;?>
+		Description: <?php echo $ingredient->description;?>
+		<br>
+	</p>
+	<p style="text-align: center;">	
+		Price: <b>$<?php echo $ingredient->price;?></b>
 	</p>
 	<?php include('inc/comments.php'); ?>
 </div>

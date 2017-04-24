@@ -43,7 +43,8 @@ if(isset($_POST["ingredient_name"])){
 	if(isset($_POST["description"])){
 		$newName = $_POST["ingredient_name"];
 		$newDsc  = $_POST["description"];
-		$db->addIngredient($newName,$filename,$newDsc);
+		$newPrice = $_POST["price"];
+		$db->addIngredient($newName,$filename,$newDsc,$newPrice);
 	}				
 }
 
@@ -68,6 +69,13 @@ if(isset($_POST["ingredient_name"])){
 						<label class="col-sm-2 control-label" for="description">Description</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control" name="description" id="description"/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="price">Price</label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" name="price" id="price"/>
 						</div>
 					</div>
 
