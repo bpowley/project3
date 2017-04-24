@@ -18,17 +18,25 @@ function addRows(lst) {
 	for (j = len - 1; j >= 0; j--) {
     rt  = "<tr>";
     rt += "<td id=\"" + lst[j].Team + "_status\" style=\"background-color: yellow;\"> unresponsive </td>"; // status of each team's page
-    rt += "<td>";
+
+    rt += "<td id=\"" + lst[j].Team + "_num\" style=\"background-color: yellow;\">";
 		rt += lst[j].Team; // team numbers
-		rt += "</td><td>";
+		rt += "</td>";
+
+    rt += "<td id=\"" + lst[j].Team + "_sname\" style=\"background-color: yellow;\">";
     rt += lst[j].nameShort; // team short name
-    rt += "</td><td>";
+    rt += "</td>";
+
+    rt += "<td id=\"" + lst[j].Team + "_lname\" style=\"background-color: yellow;\">";
     rt += lst[j].nameLong; // team long name
-    rt += "</td><td>";
-    rt += "<a href=\"" + lst[j].baseURL + "\">";
+    rt += "</td>";
+
+    rt += "<td id=\"" + lst[j].Team + "_url\" style=\"background-color: yellow;\">";
+    rt += "<a href=\"" + lst[j].baseURL + "\" target=\"_blank\">";
     rt += lst[j].baseURL; // team baseURL
     rt += "</a>"
     rt += "</td>";
+
     rt += "</tr>";
 		var rr = tab.insertRow(i);
 		rr.innerHTML = rt;
@@ -63,12 +71,26 @@ function getStatus(u, n){
     target = "#" + n + "_status";
     jQuery(target).text(data.status);
     // alert(data.status);
+
+    target1 = "#" + n + "_num";
+    target2 = "#" + n + "_lname";
+    target3 = "#" + n + "_sname";
+    target4 = "#" + n + "_url";
+
     switch(data.status){
       case "closed":
         jQuery(target).css("background-color", "red");
+        jQuery(target1).css("background-color", "red");
+        jQuery(target2).css("background-color", "red");
+        jQuery(target3).css("background-color", "red");
+        jQuery(target4).css("background-color", "red");
         break;
       case "open":
         jQuery(target).css("background-color", "lawngreen");
+        jQuery(target1).css("background-color", "lawngreen");
+        jQuery(target2).css("background-color", "lawngreen");
+        jQuery(target3).css("background-color", "lawngreen");
+        jQuery(target4).css("background-color", "lawngreen");
         break;
     }
   })
