@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<?php
+/*<!DOCTYPE html>
 <html lang="en-US">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -10,24 +11,44 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="./jquery.min.js"></script>
-<script type="text/javascript" src="./fedr_ings.js"></script>
-</head>
-<body>
-  <div>
-    <h3 style="text-align: center;">Federation Ingredients Page</h3>
-    <p style="text-align: center;"> This page should display from sites thtat are open</p>
-    <table id="ings" class="table table-striped" style="margin: 0 auto;">
-      <tr>
-        <th>Ingredient Name</th>
-        <th>Unit</th>
-        <th>Price</th>
-        <th>URL</th>
-      </tr>
-    </table>
-    <p  style="text-align: center;">
-      Status of Sites AJAX Call: <span id="output1">Unresponsive</span>
-    </p>
-  </div>
+<script type="text/javascript" src="./fedr_ings.js"></script>*/
+require_once "inc/page_setup.php";
+$pgTitle = "Federation Ingredients Page";
 
-</body>
-</html>
+include ('inc/header.php');
+echo '<script src="./jquery.min.js"></script>';
+echo '<script type="text/javascript" src="./fedr_ings.js"></script>';
+?>
+</head>
+
+<?php include ('inc/nav.php'); ?>
+
+<!-- Start contents of main page here. -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-1">
+    </div>
+    <div class="col-xs-10">
+      <h3 style="text-align: center;">Federation Ingredients Page</h3>
+      <p style="text-align: center;"> This page should display from sites thtat are open</p>
+      <table id="ings" class="table table-striped" style="margin: 0 auto;">
+        <tr>
+          <th>Ingredient Name</th>
+          <th>Unit</th>
+          <th>Price</th>
+          <th>URL</th>
+        </tr>
+      </table>
+      <p  style="text-align: center;">
+        Status of Sites AJAX Call: <span id="output1">Unresponsive</span>
+      </p>
+    </div>
+    <div class="col-xs-1">
+    </div>
+  </div>
+</div>
+
+
+  <!-- End of contents -->
+  <?php include('inc/footer.php'); ?>

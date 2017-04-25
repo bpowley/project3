@@ -4,7 +4,7 @@ jQuery(document).ready(function() {
 		buildTable(data);
 		jQuery("#output1").html(status);
 	})
-	
+
 });
 
 
@@ -19,11 +19,11 @@ function buildTable(sites){
 function entryFromSite(site){
 	var baseURL = site.baseURL;
 	var name = site.nameShort;
-	
+
 	// alert("name: [" + name + "], baseURL: [" + baseURL + "]");
 	$.ajax(
 			{
-				url: baseURL + "ajax_status.php", 
+				url: baseURL + "ajax_status.php",
 				success: function(result){
 					let dstat = result.status;
 					if(dstat != undefined && dstat == "open")
@@ -37,17 +37,17 @@ function entryFromSite(site){
 }
 
 function addSiteListing(url){
-	
+
 	if(url == ""){
-		return;	
+		return;
 	}
 	$.post(url + "ajax_listing.php", {}, function(data, status){
 		for(i = 0; i < data.length; i++){
-			
+
 			if(data[i].name != undefined){
 				addRow(data[i], url);
 			}
-				
+
 		}
 		jQuery("#output1").html(status);
 	});
@@ -58,13 +58,9 @@ function addRow(listing, url){
 	// add link here
 	row_html += "<td>" + listing.name + "</td>";
 	row_html += "<td>" + listing.unit + "</td>";
-	row_html += "<td>" + listing.cost + "</td>";
+	row_html += "<td>" + "$" + listing.cost + "</td>";
 	row_html += "<td>" + url + "</td>";
 	row_html += "</tr>";
-	
+
 	$("#ings").append(row_html);
 }
-
-
-
-
