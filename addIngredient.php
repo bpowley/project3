@@ -44,8 +44,9 @@ if(isset($_POST["ingredient_name"])){
 		$newName = $_POST["ingredient_name"];
 		$newDsc  = $_POST["description"];
 		$newPrice = $_POST["price"];
-		$db->addIngredient($newName,$filename,$newDsc,$newPrice);
-	}				
+		$newUnit = $_POST["unit"];
+		$db->addIngredient($newName,$filename,$newDsc,$newPrice,$newUnit);
+	}
 }
 
 ?>
@@ -64,18 +65,25 @@ if(isset($_POST["ingredient_name"])){
 							<input type="text" class="form-control" name="ingredient_name" id="ingredient_name"/>
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="description">Description</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control" name="description" id="description"/>
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="price">Price</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control" name="price" id="price"/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="unit">Units</label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" name="unit" id="unit"/>
 						</div>
 					</div>
 
@@ -85,8 +93,8 @@ if(isset($_POST["ingredient_name"])){
 							<input type="hidden" name ="MAX_FILE_SIZE" value="1000000"/>
 							<input type="file" class="form-control" name="image" id="image"/>
 						</div>
-					</div>					
-					
+					</div>
+
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
 							<button type="submit" class="btn btn-default">Save</button>
@@ -112,7 +120,7 @@ function parseFileSuffix($iType) {
 		return 'tif';
 	}
 	return '';
-	
+
 	/*<div class="form-group">
 						<label class="col-sm-2 control-label" for="image_name">Image Name</label>
 						<div class="col-sm-6">

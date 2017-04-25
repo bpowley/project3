@@ -25,7 +25,7 @@ class Database extends PDO {
   	}
 
     public function getIngredientDetails($name){
-      $sql = "SELECT id, ingredient_name, image_name, description, price FROM ingredients WHERE ingredient_name = '$name'";
+      $sql = "SELECT id, ingredient_name, image_name, description, price, unit FROM ingredients WHERE ingredient_name = '$name'";
       $result = $this->query ( $sql );
 		  if ($result === FALSE) {
         // Only doing this for class. Would never do this in real life
@@ -93,10 +93,10 @@ class Database extends PDO {
     }
 
 
-  	public function addIngredient($name, $img, $dsc, $price){
+  	public function addIngredient($name, $img, $dsc, $price, $unit){
   		$lastID = $this->getNoOfIngredients();
  		$newID = $lastID + 1;
-		$sql = "INSERT INTO ingredients (id, ingredient_name, image_name, description, price) VALUES ('$newID','$name','$img','$dsc','$price')";
+		$sql = "INSERT INTO ingredients (id, ingredient_name, image_name, description, price, unit) VALUES ('$newID','$name','$img','$dsc','$price','$unit')";
 		if(!$this->exec($sql)){
 			echo '<pre class="bg-danger">';
 			print_r($this->errorInfo());
