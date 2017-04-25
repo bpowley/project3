@@ -51,7 +51,9 @@ include ('inc/header.php');
 	</div>
 </div>
 
+<!-- End of contents -->
 
+<!-- Start Page Functions -->
 <?php
 function setupDatabaseConnection(){
 	try{
@@ -89,7 +91,8 @@ function createTableIngredients(){
 					ingredient_name varchar(50),
 					image_name varchar(50),
 					description varchar(500),
-					price varchar(15))";
+					price varchar(15),
+					unit varchar(15))";
 	createTableGeneric($sql);
 }
 
@@ -133,16 +136,16 @@ function createTableGeneric($sql) {
 function addDefaultIngredients(){
 	//testedIngredientInsert(1, "Kale", "kale.jpg", "Kale is the nastiest shit, how anyone can ruin smoothies with this terrible ingredient is beyond me.");
 	testedIngredientInsert(1,"Green Beans","greenbeans.jpg","These fresh green beans are a great source of fiber, antioxidants and vitamins.
-		Steam them, fry them, or bake them in a casserole for a tasty, healthy treat!","0.99");
+		Steam them, fry them, or bake them in a casserole for a tasty, healthy treat!","0.99","pound");
 	testedIngredientInsert(2, "Mint","mint.jpg","Use these fresh leaves to add a minty flavor to your tea or candy, or as a natural breath freshener.
-		These leaves can also be used to add a pleasant aroma to any room.", "2.99");
+		These leaves can also be used to add a pleasant aroma to any room.", "2.99","ounce");
 	testedIngredientInsert(3,"Oregano","oregano.jpg","This herb is part of the mint family. Order fresh leaves to use now or let them dry out for more intense flavor!
-		Oregano is wildly used Italian-American and Mediterranean cuisine.", "1.99");
+		Oregano is wildly used Italian-American and Mediterranean cuisine.", "1.99","ounce");
 }
 
-function testedIngredientInsert($id, $ing_name, $img_name, $desc, $price){
+function testedIngredientInsert($id, $ing_name, $img_name, $desc, $price, $unit){
 	global $dbh;
-	$sql = "INSERT INTO ingredients(id, ingredient_name, image_name, description, price) VALUES ( '$id', '$ing_name', '$img_name', '$desc', '$price')";
+	$sql = "INSERT INTO ingredients(id, ingredient_name, image_name, description, price, unit) VALUES ( '$id', '$ing_name', '$img_name', '$desc', '$price','$unit')";
 	$status = $dbh->exec($sql);
 	if($status === FALSE){
 		echo '<pre class="bg-danger">';
@@ -157,7 +160,7 @@ function testedIngredientInsert($id, $ing_name, $img_name, $desc, $price){
 
 function addDefaultUsers(){
 	testedUserInsert(1, "bpowley", "password","brendon.powley@gmail.com",1);
-	testedUserInsert(2, "benmertz", "password","bn.mertz@gmail.com", 1);
+	testedUserInsert(2, "ndbarteaux", "password","ndbarteaux@gmail.com", 1);
 	testedUserInsert(3, "ct310", "A835E0", "ct310@cs.colostate.edu", 1);
 	testedUserInsert(4, "fred", "3B23E6", "ct310@cs.colostate.edu", 0);
 }
@@ -211,6 +214,6 @@ function testedCommentInsert($id, $iID, $comment, $uID, $time, $oIP){
 }
 ?>
 
+<!-- End Page Functions -->
 
-<!-- End of contents -->
 <?php include('inc/footer.php'); ?>

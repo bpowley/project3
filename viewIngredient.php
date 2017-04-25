@@ -24,8 +24,8 @@ $ingredient = $db->getIngredientDetails($displayIngredient);
 		Description: <?php echo $ingredient->description;?>
 		<br>
 	</p>
-	<p style="text-align: center;">	
-		Price: <b>$<?php echo $ingredient->price;?></b>
+	<p style="text-align: center;">
+		Price: <b>$<?php echo $ingredient->price;?> / <?php echo $ingredient->unit;?></b>
 	</p>
 	<?php include('inc/comments.php'); ?>
 </div>

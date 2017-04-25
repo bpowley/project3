@@ -6,6 +6,7 @@ class Ingredient {
   public $image_name; // name of the image of the ingredient
   public $description; // description of the ingredient
   public $price; // price f the ingredient
+  public $unit;
 
   /*public function __construct($id=0, $name="default", $img="default.jpg", $dsc="default ingredient"){
     $this->id = $id;
@@ -22,6 +23,7 @@ class Ingredient {
     $newImg = $row['image_name'];
     $newDsc = $row['description'];
     $newPrice = $row['price'];
+    $newUnit = $row['unit'];
 
     $ingredient = new Ingredient();
     $ingredient->id = $newID;
@@ -29,6 +31,7 @@ class Ingredient {
     $ingredient->image_name = $newImg;
     $ingredient->description = $newDsc;
     $ingredient->price = $newPrice;
+    $ingredient->unit = $newUnit;
 
     return $ingredient;
   }
