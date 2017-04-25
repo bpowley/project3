@@ -29,6 +29,7 @@
 					<li><a href="ajax_listing.php">Ajax Listing</a></li>
 					<li><a href="ajax_status.php">Ajax Status</a></li>
 					<li><a href="fedr_status.php">Federation Status</a></li>
+					<li><a href="fedr_ings.php">Federation Ingredients</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
