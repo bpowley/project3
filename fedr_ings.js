@@ -1,12 +1,13 @@
+
 jQuery(document).ready(function() {
 	let url = "https://www.cs.colostate.edu/~ct310/yr2017sp/more_assignments/project03masterlist.php";
+	// let url = "fedr.php";
 	jQuery.post(url, {}, function(data, status) {
 		buildTable(data);
 		jQuery("#output1").html(status);
 	})
 
 });
-
 
 function buildTable(sites){
 	let length = sites.length;
@@ -19,15 +20,15 @@ function buildTable(sites){
 function entryFromSite(site){
 	var baseURL = site.baseURL;
 	var name = site.nameShort;
-
 	// alert("name: [" + name + "], baseURL: [" + baseURL + "]");
 	$.ajax(
 			{
 				url: baseURL + "ajax_status.php",
 				success: function(result){
 					let dstat = result.status;
-					if(dstat != undefined && dstat == "open")
+					if(dstat != undefined && dstat == "open"){
 						addSiteListing(baseURL);
+					}
 				},
 				error: function(result){
 					jQuery("#output1").html(baseURL + " failed to load");
@@ -37,17 +38,15 @@ function entryFromSite(site){
 }
 
 function addSiteListing(url){
-
 	if(url == ""){
 		return;
 	}
 	$.post(url + "ajax_listing.php", {}, function(data, status){
 		for(i = 0; i < data.length; i++){
-
+			// alert(url + ": [" + data[i].name + "]");
 			if(data[i].name != undefined){
 				addRow(data[i], url);
 			}
-
 		}
 		jQuery("#output1").html(status);
 	});
@@ -59,8 +58,8 @@ function addRow(listing, url){
 	row_html += "<td>" + listing.name + "</td>";
 	row_html += "<td>" + listing.unit + "</td>";
 	row_html += "<td>" + "$" + listing.cost + "</td>";
-	row_html += "<td>" + url + "</td>";
+	// row_html += "<td>" + url + "</td>";
+	row_html += "<td><a href=\"http://www.cs.colostate.edu/~bpowley/project3/ajax_ingredient.php?ing=" + listing.name + "\">Click Here</a> For More Info!</td>";
 	row_html += "</tr>";
-
 	$("#ings").append(row_html);
 }
