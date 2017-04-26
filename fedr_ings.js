@@ -55,7 +55,8 @@ function addSiteListing(url){
 function addRow(listing, url){
 	let row_html  = "<tr>";
 	// add link here
-	row_html += "<td>" + listing.name + "</td>";
+	// row_html += "<td>" + listing.name + "</td>";
+	row_html += "<td><a href=\"http://www.cs.colostate.edu/~bpowley/project3/ajax_viewingr.php?ing=" + listing.name + "&link=" + url + "\">" + listing.name + "</a></td>";
 	row_html += "<td>" + listing.unit + "</td>";
 	row_html += "<td>" + "$" + listing.cost + "</td>";
 	row_html += "<td><a href=\"" + url + "\">" + url + "</a></td>";

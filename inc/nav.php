@@ -24,10 +24,10 @@
 				<ul class="nav navbar-nav">
 					<li><a href="./index.php">Home</a></li>
 					<li><a href="./about.php">About Us</a></li>
-					<li><a href="ajax_ingredient.php">Ajax Ingredient</a></li>
-					<li><a href="ajax_ingrimage.php">Ajax Ingredient Image</a></li>
-					<li><a href="ajax_listing.php">Ajax Listing</a></li>
-					<li><a href="ajax_status.php">Ajax Status</a></li>
+					<!-- <li><a href="ajax_ingredient.php">Ajax Ingredient</a></li> -->
+					<!-- <li><a href="ajax_ingrimage.php">Ajax Ingredient Image</a></li> -->
+					<!-- <li><a href="ajax_listing.php">Ajax Listing</a></li> -->
+					<!-- <li><a href="ajax_status.php">Ajax Status</a></li> -->
 					<li><a href="fedr_status.php">Federation Status</a></li>
 					<li><a href="fedr_ings.php">Federation Ingredients</a></li>
 				</ul>
