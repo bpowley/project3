@@ -58,8 +58,8 @@ function addRow(listing, url){
 	row_html += "<td>" + listing.name + "</td>";
 	row_html += "<td>" + listing.unit + "</td>";
 	row_html += "<td>" + "$" + listing.cost + "</td>";
-	// row_html += "<td>" + url + "</td>";
-	row_html += "<td><a href=\"http://www.cs.colostate.edu/~bpowley/project3/ajax_ingredient.php?ing=" + listing.name + "\">Click Here</a> For More Info!</td>";
+	row_html += "<td><a href=\"" + url + "\">" + url + "</a></td>";
+	// row_html += "<td><a href=\"http://www.cs.colostate.edu/~bpowley/project3/ajax_ingredient.php?ing=" + listing.name + "\">Click Here</a> For More Info!</td>";
 	row_html += "</tr>";
 	$("#ings").append(row_html);
 }

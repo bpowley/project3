@@ -37,7 +37,7 @@ echo '<script type="text/javascript" src="./fedr_ings.js"></script>';
           <th>Ingredient Name</th>
           <th>Unit</th>
           <th>Price</th>
-          <th>URL</th>
+          <th>Host Website</th>
         </tr>
       </table>
       <p  style="text-align: center;">

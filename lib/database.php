@@ -15,7 +15,8 @@ class Database extends PDO {
 	}
 
 	public function getImage($name){
-		$sql = "SELECT image_name FROM ingredients WHERE ingredient_name = '$name'";
+    // echo 'getting image: [' . $name . ']';
+		$sql = "SELECT image_name FROM ingredients WHERE ingredient_name LIKE '%$name%'";
 		return $this->query($sql)->fetch();
 	}
 
@@ -25,8 +26,10 @@ class Database extends PDO {
   	}
 
     public function getIngredientDetails($name){
-      $sql = "SELECT id, ingredient_name, image_name, description, price, unit FROM ingredients WHERE ingredient_name = '$name'";
-      $result = $this->query ( $sql );
+      $sql = "SELECT id, ingredient_name, image_name, description, price, unit FROM ingredients WHERE ingredient_name LIKE '%$name%'";
+
+      $result = $this->query($sql);
+
 		  if ($result === FALSE) {
         // Only doing this for class. Would never do this in real life
         echo $sql;
@@ -37,6 +40,23 @@ class Database extends PDO {
       }
       return Ingredient::getIngredientFromRow($result->fetch());
     }
+
+    public function getAJAXIngredientDetails($name){
+      $sql = "SELECT id, ingredient_name, image_name, description, price, unit FROM ingredients WHERE ingredient_name LIKE '%$name%'";
+
+      $result = $this->query($sql);
+
+      if ($result === FALSE) {
+        // Only doing this for class. Would never do this in real life
+        echo $sql;
+        echo '<pre class="bg-danger">';
+        print_r ( $this->errorInfo () );
+        echo '</pre>';
+        return NULL;
+      }
+      return $result->fetch();
+    }
+
 
   	public function getUsers(){
   		$sql = "SELECT * FROM users";
@@ -92,9 +112,8 @@ class Database extends PDO {
 
     }
 
-
   	public function addIngredient($name, $img, $dsc, $price, $unit){
-  		$lastID = $this->getNoOfIngredients();
+  	$lastID = $this->getNoOfIngredients();
  		$newID = $lastID + 1;
 		$sql = "INSERT INTO ingredients (id, ingredient_name, image_name, description, price, unit) VALUES ('$newID','$name','$img','$dsc','$price','$unit')";
 		if(!$this->exec($sql)){

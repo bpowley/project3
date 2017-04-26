@@ -33,6 +33,7 @@ class Ingredient {
     $ingredient->price = $newPrice;
     $ingredient->unit = $newUnit;
 
+    print_r($ingredient);
     return $ingredient;
   }
 }
