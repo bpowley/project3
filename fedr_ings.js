@@ -11,7 +11,7 @@ jQuery(document).ready(function() {
 
 function buildTable(sites){
 	let length = sites.length;
-	//alert("length is : [" + length + "]");
+	// alert("length is : [" + length + "]");
 	for(i = 0; i < length; i++){
 		entryFromSite(sites[i]);
 	}
