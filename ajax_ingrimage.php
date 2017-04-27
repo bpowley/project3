@@ -8,7 +8,8 @@ $db = new Database();
 if(isset($_GET["ing"])){
 	$displayIngredient = $_GET["ing"];
 	// echo 'display ingredient [' . $displayIngredient . ']';
-	$ingimg = $db->getImage($displayIngredient);
+	$searchIng = substr($displayIngredient,1,-1);
+	$ingimg = $db->getImage($searchIng);
 	// echo "ingimg: [";
 	// print_r($ingimg);
 	// echo "]";
