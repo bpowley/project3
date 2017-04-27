@@ -8,8 +8,18 @@ $db = new Database();
 if(isset($_GET["ing"])){
 	$displayIngredient = $_GET["ing"];
 	// echo 'display ingredient [' . $displayIngredient . ']';
-	$searchIng = substr($displayIngredient,1,-1);
-	$ingimg = $db->getImage($searchIng);
+
+	$checkString1 = substr($displayIngredient,0,1);
+	$checkString2 = substr($displayIngredient,-1,1);
+	if(($checkString1 == '"') && ($checkString2 =='"')){
+		$searchIng = substr($displayIngredient,1,-1);
+		$ingimg = $db->getImage($searchIng);
+	}else{
+		$ingimg = $db->getImage($displayIngredient);
+	}
+
+	// $searchIng = substr($displayIngredient,1,-1);
+	// $ingimg = $db->getImage($searchIng);
 	// echo "ingimg: [";
 	// print_r($ingimg);
 	// echo "]";

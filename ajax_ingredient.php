@@ -9,8 +9,19 @@ if(isset($_GET['ing'])){
 	$displayIngredient = $_GET['ing'];
 	// echo 'display ingredient [' . $displayIngredient . ']';
 	// echo 'getting information on [' . $displayIngredient . ']';
-	$searchIng = substr($displayIngredient,1,-1);
-	$ingredient = $db->getAJAXIngredientDetails($searchIng);
+	$checkString1 = substr($displayIngredient,0,1);
+	$checkString2 = substr($displayIngredient,-1,1);
+	if(($checkString1 == '"') && ($checkString2 =='"')){
+		// echo 'checkString1 [' . $checkString1 . ']';
+		// echo 'checkString2 [' . $checkString2 . ']';
+		$searchIng = substr($displayIngredient,1,-1);
+		$ingredient = $db->getAJAXIngredientDetails($searchIng);
+	}else{
+		// echo 'no need to trim';
+		$ingredient = $db->getAJAXIngredientDetails($displayIngredient);
+	}
+
+
 
 	// echo 'ajax_ingredient: [';
 	// print_r($ingredient);
