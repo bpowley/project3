@@ -5,11 +5,12 @@ header ( "Access-Control-Allow-Origin: *" );
 require_once "inc/page_setup.php";
 
 $db = new Database();
-if(isset($_GET["ing"])){
-	$displayIngredient = $_GET["ing"];
+if(isset($_GET['ing'])){
+	$displayIngredient = $_GET['ing'];
 	// echo 'display ingredient [' . $displayIngredient . ']';
 	// echo 'getting information on [' . $displayIngredient . ']';
-	$ingredient = $db->getAJAXIngredientDetails($displayIngredient);
+	$searchIng = substr($displayIngredient,1,-1);
+	$ingredient = $db->getAJAXIngredientDetails($searchIng);
 
 	// echo 'ajax_ingredient: [';
 	// print_r($ingredient);
