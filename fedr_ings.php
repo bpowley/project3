@@ -13,7 +13,7 @@
 <script src="./jquery.min.js"></script>
 <script type="text/javascript" src="./fedr_ings.js"></script>*/
 require_once "inc/page_setup.php";
-$pgTitle = "Federation Ingredients Page";
+$pgTitle = "Ingredients";
 
 include ('inc/header.php');
 echo '<script src="./jquery.min.js"></script>';
@@ -30,8 +30,8 @@ echo '<script type="text/javascript" src="./fedr_ings.js"></script>';
     <div class="col-xs-1">
     </div>
     <div class="col-xs-10">
-      <h3 style="text-align: center;">Federation Ingredients Page</h3>
-      <p style="text-align: center;"> This page should display from sites thtat are open</p>
+      <h3 style="text-align: center;">Ingredients For Sale</h3>
+      <p style="text-align: center;">The following ingredients are for sale by us and our partners!</p>
       <table id="ings" class="table table-striped" style="margin: 0 auto;">
         <tr>
           <th>Ingredient Name</th>

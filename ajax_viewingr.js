@@ -16,7 +16,6 @@ function insertIngr(ing, url){
 
   let ingURL = url + "ajax_ingredient.php?ing=" + ing;
   // alert("ingredient URL: " + ingURL);
-
   jQuery.post(ingURL, {}, function(data, status) {
 		addIngr(data);
 		jQuery("#output1").html(status);

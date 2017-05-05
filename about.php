@@ -15,16 +15,16 @@ include ('inc/header.php');
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<h1>About</h1>
 			<h3>
-				This is our Project 2 Page for CT310
+				This is our Project 3 Page for CT310
 			</h3>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-6">
-			<h2>Ben Mertz</h2>
-			<img src="assets/img/ben.jpg" class="img-circle center-block avatar" alt="bm" width="280" height="290">
+			<h2>Nate Barteaux</h2>
+			<img src="assets/img/nate.jpg" class="img-circle center-block avatar" alt="nb" width="280" height="290">
 			<p style="text-align: center;">
-				Ben is a junior at CSU studying applied computing technology. His interests are skiing, biking, and boating.
+				Nate is a senior at CSU studying applied computing technology.
 			</p>
 		</div>
 		<div class="col-sm-6">
@@ -37,9 +37,9 @@ include ('inc/header.php');
 	</div>
 	<div class="row">
 		<div class="col-xs-12">
-			<p class="photoCred">All ingredient images from <a href="https://morguefile.com/">Mourgefile,com</a><br>
-				Header logo image by valeria_aksakova from <a href="http://www.freepik.com/">Freepik.com</a></p> 
-		</div>	
+			<p class="photoCred">All local ingredient images from <a href="https://morguefile.com/">Mourgefile,com</a><br>
+				Header logo image by valeria_aksakova from <a href="http://www.freepik.com/">Freepik.com</a></p>
+		</div>
 	</div>
 </div>
 
