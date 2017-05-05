@@ -19,7 +19,8 @@ include ('inc/header.php');
 		<div class="col-xs-12">
 			<h2>Welcome to Ingredients For You!</h2>
 			<h3>
-			On our site you will find information on some of the freshest ingredients to complement your cooking experience!
+			The following are ingedients hosted specifically on our website! <br>
+			To find a complete list of ingredients from us and all our associates, please visit our 'Federation Ingredients' page!
 			</h3>
 		</div>
 	</div>

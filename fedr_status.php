@@ -29,7 +29,7 @@ echo '<script type="text/javascript" src="./fedr_status.js"></script>';
     </div>
     <div class="col-xs-10">
       <h3 style="text-align: center;">Federation Status Page</h3>
-      <p style="text-align: center;"> This page should display which sites are open, closed, and not responding within the federation</p>
+      <p style="text-align: center;"> This page should display which sites are open (green), closed (red), and not responding (yellow) within our ingredients federation</p>
       <table id="sites" class="table" style="margin: 0 auto;">
         <tr>
           <th style="text-align: right;">Status</th>
