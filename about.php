@@ -21,6 +21,7 @@ include ('inc/header.php');
 	</div>
 	<div class="row">
 		<div class="col-sm-6">
+			<!-- Nate's Info -->
 			<h2>Nate Barteaux</h2>
 			<img src="assets/img/nate.jpg" class="img-circle center-block avatar" alt="nb" width="280" height="290">
 			<p style="text-align: center;">
@@ -28,6 +29,7 @@ include ('inc/header.php');
 			</p>
 		</div>
 		<div class="col-sm-6">
+			<!-- Brendon's Info -->
 			<h2>Brendon Powley</h2>
 			<img src="assets/img/brendon.jpg" class="img-circle center-block avatar" alt="bp" width="280" height="290">
 			<p style="text-align: center;">
